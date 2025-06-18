@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +18,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+      - assets/bubbleImages/bubble.png
+      - assets/bubbleImages/bubble6.png
+      - assets/bubbleImages/bubble4.png
+      - assets/bubbleImages/bubble5.png
+      - assets/bubbleImages/bubble2.png
+      - assets/bubbleImages/bubble3.png
+      - assets/bubbleImages/bubbleIcon.png
