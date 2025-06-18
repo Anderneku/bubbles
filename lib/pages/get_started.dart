@@ -90,7 +90,7 @@ class _GetStartedState extends State<GetStarted> {
                         style: TextStyle(
                           fontSize: 40,
                           fontFamily: 'Inter',
-                          fontVariations: [FontVariation('wght', 500)],
+                          fontVariations: [FontVariation('wght', 800)],
                           color: Colors.white,
                         ),
                       ),
@@ -122,17 +122,10 @@ class _GetStartedState extends State<GetStarted> {
                       width: 350,
                       height: 60,
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: _ispressed
-                              ? [Colors.pink.shade700, Colors.purple.shade700]
-                              : [Color(0xfffc466b), Color(0xff3f5efb)],
-                          stops: [0.25, 0.75],
-                          begin: Alignment.centerRight,
-                          end: Alignment.centerLeft,
-                        ),
+                        color: _ispressed ? Colors.white : Colors.black,
                         border: Border.all(
-                          color: const Color.fromARGB(255, 208, 208, 208),
-                          width: 1,
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          width: 3,
                         ),
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -143,7 +136,7 @@ class _GetStartedState extends State<GetStarted> {
                             fontSize: 20,
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w500,
-                            color: Colors.white,
+                            color: _ispressed ? Colors.black : Colors.white,
                           ),
                         ),
                       ),
