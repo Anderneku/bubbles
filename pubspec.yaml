@@ -18,6 +18,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf
   assets:
       - assets/bubbleImages/bubble.png
       - assets/bubbleImages/bubble6.png

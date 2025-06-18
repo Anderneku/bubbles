@@ -32,19 +32,8 @@ class _GetStartedState extends State<GetStarted> {
               right: -250,
               child: Image.asset('assets/bubbleImages/bubble.png'),
             ),
-            Column(),
+
             // White Circle Icon
-            Positioned(
-              top: 120,
-              right: 0,
-              left: 0,
-              child: Center(
-                child: Image.asset(
-                  'assets/bubbleImages/bubbleIcon.png',
-                  scale: .9,
-                ),
-              ),
-            ),
             Positioned(
               bottom: -200,
               left: -290,
@@ -80,92 +69,87 @@ class _GetStartedState extends State<GetStarted> {
               right: -250,
               child: Image.asset('assets/bubbleImages/bubble.png'),
             ),
-            Center(
+
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 80,
+                bottom: 50,
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Welcome to ',
+                  Image.asset('assets/bubbleImages/bubbleIcon.png', scale: .9),
+                  Column(
+                    spacing: 1,
+                    children: [
+                      Text(
+                        'Welcome to Bubbles!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 40,
+                          fontFamily: 'Inter',
+                          fontVariations: [FontVariation('wght', 500)],
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Ready to pop into your first Bubble?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontVariations: [FontVariation('wght', 500)],
+                          color: Color.fromARGB(255, 165, 165, 165),
+                        ),
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTapDown: (_) {
+                      setState(() {
+                        _ispressed = true;
+                      });
+                    },
+                    onTapUp: (_) {
+                      setState(() {
+                        _ispressed = false;
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 200),
+                      width: 350,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: _ispressed
+                              ? [Colors.pink.shade700, Colors.purple.shade700]
+                              : [Color(0xfffc466b), Color(0xff3f5efb)],
+                          stops: [0.25, 0.75],
+                          begin: Alignment.centerRight,
+                          end: Alignment.centerLeft,
+                        ),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 208, 208, 208),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Get Started',
                           style: TextStyle(
-                            fontSize: 36,
+                            fontSize: 20,
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
                           ),
                         ),
-                        TextSpan(
-                          text: 'Bubbles!',
-                          style: TextStyle(
-                            fontSize: 36,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
-                            color: const Color.fromARGB(255, 255, 0, 255),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Text(
-                    'Ready to pop into your first Bubble?',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 165, 165, 165),
+                      ),
                     ),
                   ),
                 ],
-              ),
-            ),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: -MediaQuery.of(context).size.height + 200,
-              child: Center(
-                child: GestureDetector(
-                  onTapDown: (_) {
-                    setState(() {
-                      _ispressed = true;
-                    });
-                  },
-                  onTapUp: (_) {
-                    setState(() {
-                      _ispressed = false;
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: Duration(milliseconds: 200),
-                    width: 350,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: _ispressed
-                            ? [Colors.pink.shade700, Colors.purple.shade700]
-                            : [Color(0xfffc466b), Color(0xff3f5efb)],
-                        stops: [0.25, 0.75],
-                        begin: Alignment.centerRight,
-                        end: Alignment.centerLeft,
-                      ),
-                      border: Border.all(color: Colors.white, width: 3),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Get Started',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
               ),
             ),
           ],
