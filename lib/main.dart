@@ -1,4 +1,4 @@
-import 'package:bubbles/pages/get_started.dart';
+import 'package:bubbles/pages/loginPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: GetStarted(), debugShowCheckedModeBanner: false);
+    return MaterialApp(
+      home: LoginPage(), // GetStarted(),
+      theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }

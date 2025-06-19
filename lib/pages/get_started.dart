@@ -1,3 +1,4 @@
+import 'package:bubbles/pages/loginPage.dart';
 import 'package:flutter/material.dart';
 
 class GetStarted extends StatefulWidget {
@@ -115,6 +116,10 @@ class _GetStartedState extends State<GetStarted> {
                     onTapUp: (_) {
                       setState(() {
                         _ispressed = false;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
                       });
                     },
                     child: AnimatedContainer(
@@ -132,6 +137,7 @@ class _GetStartedState extends State<GetStarted> {
                       child: Center(
                         child: Text(
                           'Get Started',
+                          textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
                             fontFamily: 'Inter',
