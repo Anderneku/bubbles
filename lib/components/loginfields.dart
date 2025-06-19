@@ -11,7 +11,7 @@ class LoginField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: isPassword
           ? [
-              Text("Enter your address"),
+              Text("Enter your password"),
               SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
