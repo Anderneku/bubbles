@@ -1,4 +1,4 @@
-import 'package:bubbles/pages/loginPage.dart';
+import 'package:bubbles/pages/authentication/loginPage.dart';
 import 'package:flutter/material.dart';
 
 class GetStarted extends StatefulWidget {

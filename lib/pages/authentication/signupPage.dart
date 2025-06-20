@@ -1,10 +1,11 @@
+import 'package:bubbles/components/avatarSelect.dart';
 import 'package:bubbles/components/backgroundBubbles/loginBubbles.dart';
 import 'package:bubbles/components/loginfields.dart';
-import 'package:bubbles/pages/authentication/signupPage.dart';
+import 'package:bubbles/pages/authentication/loginPage.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +31,13 @@ class LoginPage extends StatelessWidget {
                       padding: const EdgeInsets.only(
                         left: 20.0,
                         right: 20.0,
-                        top: 80.0,
+                        top: 20.0,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Login to your',
+                            'Create an',
                             style: TextStyle(
                               fontSize: 40,
                               fontFamily: 'Inter',
@@ -54,6 +55,8 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 40),
+                          AvatarSelect(),
+                          SizedBox(height: 40),
                           Center(
                             child: Column(
                               children: [
@@ -66,24 +69,6 @@ class LoginPage extends StatelessWidget {
                                   ],
                                 ),
                                 SizedBox(height: 20),
-                                Center(
-                                  child: TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Forgot Password?",
-                                      style: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 18,
-                                        color: Color.fromARGB(
-                                          255,
-                                          249,
-                                          61,
-                                          255,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
                                 SizedBox(height: 20),
                                 GestureDetector(
                                   child: AnimatedContainer(
@@ -103,23 +88,12 @@ class LoginPage extends StatelessWidget {
                                       ),
                                     ),
                                     child: Center(
-                                      child: TextButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SignupPage(),
-                                            ),
-                                          );
-                                        },
-                                        child: Text(
-                                          "Login",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Inter',
-                                            fontSize: 24,
-                                          ),
+                                      child: Text(
+                                        "Sign Up",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Inter',
+                                          fontSize: 24,
                                         ),
                                       ),
                                     ),
@@ -157,7 +131,7 @@ class LoginPage extends StatelessWidget {
                                           ),
                                           SizedBox(width: 10),
                                           Text(
-                                            "Sign in with Google",
+                                            "Sign up with Google",
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontFamily: 'Inter',
@@ -174,7 +148,7 @@ class LoginPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      "Don't have an account?",
+                                      "Already have an account?",
                                       style: TextStyle(
                                         fontFamily: 'Inter',
                                         fontSize: 14,
@@ -186,12 +160,12 @@ class LoginPage extends StatelessWidget {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => SignupPage(),
+                                            builder: (context) => LoginPage(),
                                           ),
                                         );
                                       },
                                       child: Text(
-                                        "Create an account",
+                                        "Log in",
                                         style: TextStyle(
                                           fontFamily: 'Inter',
                                           fontSize: 14,
@@ -206,6 +180,7 @@ class LoginPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
+                                SizedBox(height: 70),
                               ],
                             ),
                           ),
