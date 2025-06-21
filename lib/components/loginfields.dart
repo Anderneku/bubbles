@@ -1,5 +1,6 @@
 import 'package:bubbles/styles/textfields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginField extends StatelessWidget {
   final bool isPassword;
@@ -11,8 +12,8 @@ class LoginField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: isPassword
           ? [
-              Text("Enter your password"),
-              SizedBox(height: 8),
+              Text("Enter your password", style: TextStyle(fontSize: 13.sp)),
+              SizedBox(height: 5.h),
               SizedBox(
                 width: double.infinity,
                 child: TextFieldStyles.login(
@@ -22,8 +23,8 @@ class LoginField extends StatelessWidget {
               ),
             ]
           : [
-              Text("Your email address"),
-              SizedBox(height: 8),
+              Text("Your email address", style: TextStyle(fontSize: 13.sp)),
+              SizedBox(height: 5.h),
               SizedBox(
                 width: double.infinity,
                 child: TextFieldStyles.login(
