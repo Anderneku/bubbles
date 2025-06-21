@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.2.0
   image_picker: ^1.1.2
   riverpod: ^2.6.1
   supabase_flutter: ^2.9.1
@@ -35,4 +36,5 @@ flutter:
       - assets/bubbleImages/bubble2.png
       - assets/bubbleImages/bubble3.png
       - assets/bubbleImages/bubbleIcon.png
+      - assets/bubbleImages/bubbleIcon.svg
       - assets/otherIcons/

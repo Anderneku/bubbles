@@ -1,5 +1,4 @@
 import 'package:bubbles/pages/authentication/get_started.dart';
-import 'package:bubbles/pages/authentication/loginPage.dart';
 import 'package:bubbles/pages/authentication/signupPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +18,7 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
 
       builder: (context, child) => MaterialApp(
-        home: GetStarted(), // LoginPage(),  GetStarted(),
+        home: SignupPage(), // LoginPage(),  GetStarted(),
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
       ),

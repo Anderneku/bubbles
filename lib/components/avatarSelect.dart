@@ -41,18 +41,18 @@ class _AvatarSelectState extends State<AvatarSelect> {
         child: Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.purpleAccent, width: 2.w),
+            border: Border.all(color: Colors.white, width: 2.w),
           ),
           child: SizedBox(
-            width: 100.w,
-            height: 100.h,
+            width: 120.w,
+            height: 120.h,
             child: CircleAvatar(
               backgroundColor: Color.fromARGB(255, 9, 9, 9),
               backgroundImage: FileImage(_imageFile ?? File('')),
               child: Icon(
-                Icons.camera_alt,
-                size: 55.r,
-                color: Colors.purpleAccent,
+                Icons.person,
+                size: 60.r,
+                color: Color.fromARGB(255, 125, 50, 245),
               ),
             ),
           ),

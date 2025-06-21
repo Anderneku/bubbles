@@ -1,5 +1,9 @@
 import 'package:bubbles/pages/authentication/loginPage.dart';
+import 'package:bubbles/pages/authentication/signupPage.dart';
+import 'package:bubbles/styles/animatedButton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({super.key});
@@ -8,150 +12,97 @@ class GetStarted extends StatefulWidget {
   State<GetStarted> createState() => _GetStartedState();
 }
 
-class _GetStartedState extends State<GetStarted> {
-  bool _ispressed = false;
+class _GetStartedState extends State<GetStarted> with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 5),
+      vsync: this,
+    )..repeat(reverse: true); // Makes it rotate forever
+    _scaleAnimation = Tween<double>(
+      begin: 0.8,
+      end: 1.1,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.elasticInOut));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 7, 0, 13),
-      body: Center(
-        child: Stack(
-          children: [
-            Positioned(
-              top: 150,
-              left: -250,
-              child: Image.asset('assets/bubbleImages/bubble.png'),
-            ),
-            Positioned(
-              top: 50,
-              left: 50,
-              child: Image.asset('assets/bubbleImages/bubble6.png', scale: 2.5),
-            ),
-            Positioned(
-              top: -150,
-              right: -250,
-              child: Image.asset('assets/bubbleImages/bubble.png'),
-            ),
-
-            // White Circle Icon
-            Positioned(
-              bottom: -200,
-              left: -290,
-              child: Image.asset('assets/bubbleImages/bubble.png'),
-            ),
-            Positioned(
-              top: 300,
-              right: 10,
-              child: Image.asset('assets/bubbleImages/bubble4.png', scale: 4),
-            ),
-            Positioned(
-              top: 250,
-              right: 90,
-              child: Image.asset('assets/bubbleImages/bubble5.png', scale: 2),
-            ),
-            Positioned(
-              bottom: 280,
-              left: 200,
-              child: Image.asset('assets/bubbleImages/bubble2.png', scale: 4),
-            ),
-            Positioned(
-              bottom: 230,
-              left: 20,
-              child: Image.asset('assets/bubbleImages/bubble2.png', scale: 6),
-            ),
-            Positioned(
-              bottom: 140,
-              left: 50,
-              child: Image.asset('assets/bubbleImages/bubble3.png', scale: 2),
-            ),
-            Positioned(
-              bottom: -20,
-              right: -250,
-              child: Image.asset('assets/bubbleImages/bubble.png'),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 80,
-                bottom: 50,
+      backgroundColor: Color.fromARGB(255, 3, 0, 5),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 14.w),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center, // vertical centering
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              RotationTransition(
+                turns: _controller,
+                child: ScaleTransition(
+                  scale: _scaleAnimation,
+                  child: SvgPicture.asset('assets/bubbleImages/bubbleIcon.svg'),
+                ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              SizedBox(height: 33.h), // spacing between image and text
+              Column(
+                // spacing: 1, // 'spacing' is not a valid property for Column
                 children: [
-                  Image.asset('assets/bubbleImages/bubbleIcon.png', scale: .9),
-                  Column(
-                    spacing: 1,
-                    children: [
-                      Text(
-                        'Welcome to Bubbles!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontFamily: 'Inter',
-                          fontVariations: [FontVariation('wght', 800)],
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'Ready to pop into your first Bubble?',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Inter',
-                          fontVariations: [FontVariation('wght', 500)],
-                          color: Color.fromARGB(255, 165, 165, 165),
-                        ),
-                      ),
-                    ],
-                  ),
-                  GestureDetector(
-                    onTapDown: (_) {
-                      setState(() {
-                        _ispressed = true;
-                      });
-                    },
-                    onTapUp: (_) {
-                      setState(() {
-                        _ispressed = false;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );
-                      });
-                    },
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
-                      width: 350,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: _ispressed ? Colors.white : Colors.black,
-                        border: Border.all(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          width: 3,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Get Started',
-                          textAlign: TextAlign.left,
+                  RichText(
+                    softWrap: true,
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Welcome to ',
                           style: TextStyle(
-                            fontSize: 20,
                             fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
-                            color: _ispressed ? Colors.black : Colors.white,
+                            fontSize: 36.sp,
+                            color: Colors.white,
                           ),
                         ),
-                      ),
+                        TextSpan(
+                          text: 'Bubbles!',
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 36.sp,
+                            color: Color.fromARGB(255, 125, 50, 245),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    'Ready to pop into your first Bubble?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontFamily: 'Inter',
+                      fontVariations: [FontVariation('wght', 500)],
+                      color: Color.fromARGB(255, 165, 165, 165),
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: 91.h), // spacing between text and button
+              AnimatedButton(
+                pageBuilder: (context) => LoginPage(),
+                bgColor: Color.fromARGB(255, 125, 50, 245),
+                text: "Login",
+              ),
+              SizedBox(height: 20.h), // spacing between text and button
+              AnimatedButton(
+                pageBuilder: (context) => SignupPage(),
+                bgColor: Colors.white,
+                txtColor: Colors.black,
+                text: "Sign Up",
+              ),
+            ],
+          ),
         ),
       ),
     );
